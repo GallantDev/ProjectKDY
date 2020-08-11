@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<GameItemDatabase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BasicMaterials>
+    <GameItemData>
+      <Id>0</Id>
+      <ItemName>Iron Ore</ItemName>
+      <ItemDescription>An unrefined lump of iron.</ItemDescription>
+      <ItemType>BASIC_MATERIAL</ItemType>
+      <ItemMesh>Meshes/Cube</ItemMesh>
+      <ItemMeshScale>
+        <x>0.1</x>
+        <y>0.1</y>
+        <z>0.1</z>
+      </ItemMeshScale>
+      <ItemMaterial>Materials/IronOreMaterial</ItemMaterial>
+      <ItemSprite>Sprites/IronOreSprite</ItemSprite>
+    </GameItemData>
+  </BasicMaterials>
+  <RefinedMaterials>
+    <GameItemData>
+      <Id>1</Id>
+      <ItemName>Iron Ingot</ItemName>
+      <ItemDescription>A refined bar of iron.</ItemDescription>
+      <ItemType>BASIC_MATERIAL</ItemType>
+      <ItemMesh>Meshes/Cube</ItemMesh>
+      <ItemMeshScale>
+        <x>0.1</x>
+        <y>0.1</y>
+        <z>0.1</z>
+      </ItemMeshScale>
+      <ItemMaterial>Materials/IronIngotMaterial</ItemMaterial>
+      <ItemSprite>Sprites/IronIngotSprite</ItemSprite>
+    </GameItemData>
+  </RefinedMaterials>
+</GameItemDatabase>

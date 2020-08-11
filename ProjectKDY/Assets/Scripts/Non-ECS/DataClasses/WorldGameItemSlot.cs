@@ -1,18 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class WorldGameItemSlot {
-    private WorldGameItem slotItem;
+    [SerializeField]
+    private GameItem worldGameItem;
+    [SerializeField]
     private Vector3 itemWorldPos;
 
-    public WorldGameItem SlotItem {
+
+    public GameItem WorldGameItem {
         get {
-            return slotItem;
+            return worldGameItem;
         }
 
         set {
-            slotItem = value;
+            worldGameItem = value;
         }
     }
 
@@ -26,16 +31,12 @@ public class WorldGameItemSlot {
         }
     }
 
-    public WorldGameItemSlot(WorldGameItem item) {
-        slotItem = item;
-    }
-
     public WorldGameItemSlot(Vector3 pos) {
         itemWorldPos = pos;
     }
 
-    public WorldGameItemSlot(WorldGameItem item, Vector3 pos) {
-        slotItem = item;
+    public WorldGameItemSlot(GameItem gameItem, Vector3 pos) {
+        worldGameItem = gameItem;
         itemWorldPos = pos;
     }
 }
