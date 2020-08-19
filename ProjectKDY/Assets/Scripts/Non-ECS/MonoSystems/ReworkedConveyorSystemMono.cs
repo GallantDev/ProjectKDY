@@ -267,6 +267,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
     #endregion
 
     #region Conveyor Helper Functions
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //used in SlotLayout cases
     //Checks if destination slot is on same conveyor belt
     private bool DestinationSlotLocalityTest(int slotIndex) {
@@ -361,6 +362,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //used in single slot and layout to layout cases
     public int GetDestinationItemSlotIndex(int slotIndex, float angleDiff) {
         //print("Slot Index: " + slotIndex + ", Angle Diff: " + angleDiff);
@@ -413,6 +415,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     private WorldGameItemSlot GetDestinationItemSlotFromLocalSlottedInventory(FactoryItemSlottedInventory inputLayout, int slotIndex) {
         WorldGameItemSlot tmpSlot = null;
         if (DestinationSlotLocalityTest(slotIndex) == true) {
@@ -428,6 +431,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //used in layoyut to layout case
     //Returns the destination slot - moving slot layout to slot layout
     private WorldGameItemSlot GetDestinationItemSlotFromSlottedInventory(int inputEntIndex, int slotIndex, int outputEntIndex, FactoryItemSlottedInventory outputLayout) {
@@ -441,11 +445,12 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //no change needed
     //used in virtual to physical case
     //Returns the destination slot, moving virtual to physical
     public WorldGameItemSlot GetDestinationItemSlotFromSlotlessInventory(int inputEntIndex, int outputSlotIndex, int outputEntIndex) {
-        FactoryItemSlottedInventory tmpSlotLayout = SystemEntities[outputEntIndex].GetEntityComponent(typeof(FactoryItemSlottedInventory)) as FactoryItemSlottedInventory;
+        FactoryItemSlottedInventory tmpSlotLayout = SystemEntities[outputEntIndex].GetComponent<FactoryItemSlottedInventory>();
         WorldGameItemSlot tmpSlot = null;
         float angleDiff = Mathf.RoundToInt(Vector3.SignedAngle(transforms[inputEntIndex].forward, transforms[outputEntIndex].forward, Vector3.up));
         print("Input slot index: " + outputSlotIndex + ", angle diff: " + angleDiff + "!");
@@ -457,6 +462,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //no change needed
     //used by slotless inventories to move to slotted inventories
     private List<int> GetOpenEntrySlotIndices(int inputEntIndex, int outputEntIndex, FactoryItemSlottedInventory outputLayout) {
@@ -473,6 +479,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return tmpSlotIndices;
     }
 
+    //CAN BE MOVED - FactoryItemFilter
     private GameItemStack GetExistingItemStackFromItemFilter(int itemId, FactoryItemFilter filter) {
         for (int i = 0; i < filter.AllowedItemStackDatas.Count; i++) {
             if (itemId == filter.AllowedItemStackDatas[i].ItemData.Id) {
@@ -482,6 +489,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private GameItemStack GetExistingItemStackFromProductionInventory(GameItemData itemData, FactoryItemProductionInventory prodInv) {
         for (int i = 0; i < prodInv.InputItemStacks.Count; i++) {
             if (itemData.Id == prodInv.InputItemStacks[i].ItemData.Id) {
@@ -491,6 +499,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private GameItemStack GetExistingItemStackFromStorageInventory(GameItemData itemData, FactoryItemStorageInventory storageInv) {
         for (int i = 0; i < storageInv.ItemStacks.Count; i++) {
             if (itemData.Id == storageInv.ItemStacks[i].ItemData.Id) {
@@ -500,6 +509,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return null;
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private void AddItemToProductionInventory(GameItemData inputItem, FactoryItemProductionInventory prodInv) {
         GameItemStack tmpStack = null;
         tmpStack = GetExistingItemStackFromProductionInventory(inputItem, prodInv);
@@ -511,6 +521,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private void AddItemStackToProductionInventory(GameItemStack inputItemStack, FactoryItemProductionInventory prodInv) {
         GameItemStack tmpStack = null;
         tmpStack = GetExistingItemStackFromProductionInventory(inputItemStack.ItemData, prodInv);
@@ -522,6 +533,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private void AddItemToStorageInventory(GameItemData inputItem, FactoryItemStorageInventory storageInv) {
         GameItemStack tmpStack = null;
         tmpStack = GetExistingItemStackFromStorageInventory(inputItem, storageInv);
@@ -533,6 +545,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private void AddItemStackToStorageInventory(GameItemStack inputItemStack, FactoryItemStorageInventory storageInv) {
         GameItemStack tmpStack = null;
         tmpStack = GetExistingItemStackFromStorageInventory(inputItemStack.ItemData, storageInv);
@@ -544,6 +557,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private void RemoveItemFromProductionInventory(GameItemData inputItem, FactoryItemProductionInventory outputProdInv) {
         for (int i = 0; i < outputProdInv.OutputItemStacks.Count; i++) {
             if (outputProdInv.OutputItemStacks[i].ItemData.Id == inputItem.Id) {
@@ -556,6 +570,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private void RemoveItemStackFromProductionInventory(GameItemStack inputItemStack, FactoryItemProductionInventory outputProdInv) {
         for (int i = 0; i < outputProdInv.OutputItemStacks.Count; i++) {
             if (outputProdInv.OutputItemStacks[i].ItemData.Id == inputItemStack.ItemData.Id) {
@@ -568,6 +583,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private void RemoveItemFromStorageInventory(GameItemData inputItem, FactoryItemStorageInventory outputStorageInv) {
         for (int i = 0; i < outputStorageInv.ItemStacks.Count; i++) {
             if (outputStorageInv.ItemStacks[i].ItemData.Id == inputItem.Id) {
@@ -580,6 +596,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private void RemoveItemStackFromStorageInventory(GameItemStack inputItemStack, FactoryItemStorageInventory outputStorageInv) {
         for (int i = 0; i < outputStorageInv.ItemStacks.Count; i++) {
             if (outputStorageInv.ItemStacks[i].ItemData.Id == inputItemStack.ItemData.Id) {
@@ -592,6 +609,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     private int GetTotalItemCount(FactoryItemSlottedInventory slotInv) {
         int numOfItems = 0;
         for (int i = 0; i < slotInv.ItemSlots.Count; i++) {
@@ -602,6 +620,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return numOfItems;
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     public int GetItemCount(FactoryItemSlottedInventory slotInv, int itemId) {
         int numOfItems = 0;
         for (int i = 0; i < slotInv.ItemSlots.Count; i++) {
@@ -621,6 +640,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
     //    }
     //}
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     //Returns amount of input items
     private int GetTotalItemCount(FactoryItemProductionInventory prodInv) {
         int itemCount = 0;
@@ -630,6 +650,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return itemCount;
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     //Returns amount of input items of type
     public int GetItemCount(FactoryItemProductionInventory prodInv, int itemId) {
         for (int i = 0; i < prodInv.InputItemStacks.Count; i++) {
@@ -640,6 +661,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return 0;
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private int GetTotalItemCount(FactoryItemStorageInventory storageInv) {
         int numOfItems = 0;
         for (int i = 0; i < storageInv.ItemStacks.Count; i++) {
@@ -648,6 +670,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return numOfItems;
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     public int GetItemCount(FactoryItemStorageInventory storageInv, int itemId) {
         int numOfItems = 0;
         for (int i = 0; i < storageInv.ItemStacks.Count; i++) {
@@ -668,6 +691,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     private bool InventoryIsFull(int invEntIndex, FactoryItemSlottedInventory slotInv) {
         if (GetTotalItemCount(slotInv) < itemFilters[invEntIndex].MaxItemCount) {
             return true;
@@ -677,6 +701,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     private bool InventoryIsFull(int invEntIndex, FactoryItemProductionInventory prodInv) {
         if (GetTotalItemCount(prodInv) < itemFilters[invEntIndex].MaxItemCount) {
             return true;
@@ -686,6 +711,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     private bool InventoryIsFull(int invEntIndex, FactoryItemStorageInventory storageInv) {
         if (GetTotalItemCount(storageInv) < itemFilters[invEntIndex].MaxItemCount) {
             return true;
@@ -695,6 +721,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         }
     }
 
+    //CAN BE MOVED - FactoryItemSlottedInventory
     //treat as all item types allowed if AllowedItemStackDatas.Count == 0
     private bool InventoryHasSpaceForItemType(int entIndex, FactoryItemSlottedInventory slotInv, int id, int count) {
         GameItemStack tmpStack = null;
@@ -720,6 +747,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return false;
     }
 
+    //CAN BE MOVED - FactoryItemProductionInventory
     //treat as all item types allowed if AllowedItemStackDatas.Count == 0
     private bool InventoryHasSpaceForItemType(int entIndex, FactoryItemProductionInventory prodInv, int id, int count) {
         GameItemStack tmpStack = null;
@@ -745,6 +773,7 @@ public class ReworkedConveyorSystemMono : MonoGameSystem {
         return false;
     }
 
+    //CAN BE MOVED - FactoryItemStorageInventory
     //treat as all item types allowed if AllowedItemStackDatas.Count == 0
     private bool InventoryHasSpaceForItemType(int entIndex, FactoryItemStorageInventory storageInv, int id, int count) {
         GameItemStack tmpStack = null;

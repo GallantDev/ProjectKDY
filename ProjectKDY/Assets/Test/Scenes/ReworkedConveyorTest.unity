@@ -3267,6 +3267,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
         type: 3}
+      propertyPath: itemRecipes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
       propertyPath: currentRecipe.inputItemSets.Array.data[0].itemData.itemName
       value: Iron Ore
       objectReference: {fileID: 0}
@@ -3364,6 +3389,206 @@ PrefabInstance:
         type: 3}
       propertyPath: currentRecipe.inputItemSets.Array.data[0].itemCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].productionTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].itemOverflowMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemName
+      value: Iron Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemDescription
+      value: A refined bar of iron.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemMesh
+      value: Meshes/Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemMeshScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemMeshScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemMeshScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemMaterial
+      value: Materials/IronBarMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].outputItemSets.Array.data[0].itemData.itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemMaterial
+      value: Materials/IronOreMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemMesh
+      value: Meshes/Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemDescription
+      value: An unrefined lump of iron.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemName
+      value: Iron Ore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].productionTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].itemOverflowMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemMaterial
+      value: Materials/IronBarMaterial
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemMeshScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemMeshScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemMeshScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemMeshScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemMeshScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[0].inputItemSets.Array.data[0].itemData.itemMeshScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemName
+      value: Iron Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemDescription
+      value: A refined bar of iron.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].inputItemSets.Array.data[0].itemData.itemMesh
+      value: Meshes/Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemName
+      value: Iron Ore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemDescription
+      value: An unrefined lump of iron.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemMeshScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemMeshScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemMeshScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemMesh
+      value: Meshes/Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567712468078133715, guid: 3bc0748cb472609459fbd3e0ddcce138,
+        type: 3}
+      propertyPath: itemRecipes.Array.data[1].outputItemSets.Array.data[0].itemData.itemMaterial
+      value: Materials/IronOreMaterial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc0748cb472609459fbd3e0ddcce138, type: 3}

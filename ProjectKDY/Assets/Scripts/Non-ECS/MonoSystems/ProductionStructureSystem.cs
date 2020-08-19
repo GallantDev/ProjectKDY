@@ -32,6 +32,11 @@ public class ProductionStructureSystem : MonoGameSystem {
 
     public override IEnumerator Execute() {
         print("Production System: Execute!");
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        //    for (int i = 0; i < SystemEntities.Count; i++) {
+        //        ChangeRecipe(i, 1);
+        //    }
+        //}
         for (int i = 0; i < SystemEntities.Count; i++) {
             CheckForProductionRequirements(i);
         }
@@ -58,13 +63,13 @@ public class ProductionStructureSystem : MonoGameSystem {
         for (int i = 0; i < productionStructures[entIndex].CurrentRecipe.InputItemSets.Count; i++) {
             RemoveInputItemStackFromProductionInventory(productionStructures[entIndex].CurrentRecipe.InputItemSets[i], productionInventories[entIndex]);
         }
-        for (int x = 0; x < productionStructures[entIndex].CurrentRecipe.OutputItems.Count; x++) {
-            tmpStack = GetExistingOutputItemStackFromProductionInventory(productionStructures[entIndex].CurrentRecipe.OutputItems[x].ItemData, productionInventories[entIndex]);
+        for (int x = 0; x < productionStructures[entIndex].CurrentRecipe.OutputItemSets.Count; x++) {
+            tmpStack = GetExistingOutputItemStackFromProductionInventory(productionStructures[entIndex].CurrentRecipe.OutputItemSets[x].ItemData, productionInventories[entIndex]);
             if (tmpStack == null) {
-                productionInventories[entIndex].OutputItemStacks.Add(new GameItemStack(productionStructures[entIndex].CurrentRecipe.OutputItems[x].ItemData, productionStructures[entIndex].CurrentRecipe.OutputItems[x].ItemCount));
+                productionInventories[entIndex].OutputItemStacks.Add(new GameItemStack(productionStructures[entIndex].CurrentRecipe.OutputItemSets[x].ItemData, productionStructures[entIndex].CurrentRecipe.OutputItemSets[x].ItemCount));
             }
             else {
-                tmpStack.ItemCount += productionStructures[entIndex].CurrentRecipe.OutputItems[x].ItemCount;
+                tmpStack.ItemCount += productionStructures[entIndex].CurrentRecipe.OutputItemSets[x].ItemCount;
             }
         }
         productionStructures[entIndex].IsProducing = false;
@@ -101,21 +106,40 @@ public class ProductionStructureSystem : MonoGameSystem {
         }
     }
 
-    //private void ChangeRecipe(int entIndex, int recipeIndex) {
-    //    productionStructures[entIndex].CurrentRecipe = productionStructures[entIndex].ItemRecipes[recipeIndex];
-    //    ClearOldRecipeItems();
-    //}
+    private void ChangeRecipe(int entIndex, int recipeIndex) {
+        productionStructures[entIndex].CurrentRecipe = productionStructures[entIndex].ItemRecipes[recipeIndex];
+        ClearOldRecipeItems(entIndex);
+    }
 
-    //private void ClearOldRecipeItems(int entIndex) {
-    //    for (int i = 0; i < productionInventories[entIndex].InputItemStacks.Count; i++) {
-    //        if (productionStructures[entIndex].CurrentRecipe.InputItemSets.IsInputItemType()) {
-
-    //        }
-    //    }
-    //    for (int x = 0; x < productionInventories[entIndex].OutputItemStacks.Count; x++) {
-    //        if (productionStructures[entIndex].CurrentRecipe.OutputItemSets.IsOutputItemType()) {
-
-    //        }
-    //    }
-    //}
+    private void ClearOldRecipeItems(int entindex) {
+        List<GameItemStack> inputStacksToRemove = new List<GameItemStack>();
+        List<GameItemStack> outputStacksToRemove = new List<GameItemStack>();
+        //clear old input items
+        for (int i = 0; i < productionInventories[entindex].InputItemStacks.Count; i++) {
+            if (productionStructures[entindex].CurrentRecipe.IsInputItemType(productionInventories[entindex].InputItemStacks[i].ItemData.Id)) {
+                //remove items if over the overflow limit
+                if (productionInventories[entindex].InputItemStacks[i].ItemCount > productionStructures[entindex].CurrentRecipe.GetInputItemTypeLimit(productionInventories[entindex].InputItemStacks[i].ItemData.Id)) {
+                    productionInventories[entindex].InputItemStacks[i].ItemCount = productionStructures[entindex].CurrentRecipe.GetInputItemTypeLimit(productionInventories[entindex].InputItemStacks[i].ItemData.Id);
+                }
+            }
+            else {
+                //remove items stack entirely
+                inputStacksToRemove.Add(productionInventories[entindex].InputItemStacks[i]);
+            }
+        }
+        //clear old output items
+        for (int x = 0; x < productionInventories[entindex].OutputItemStacks.Count; x++) {
+            if (productionStructures[entindex].CurrentRecipe.IsOutputItemType(productionInventories[entindex].OutputItemStacks[x].ItemData.Id)) {
+                //remove items if over the overflow limit
+            }
+            else {
+                //remove items stack entirely
+                outputStacksToRemove.Add(productionInventories[entindex].OutputItemStacks[x]);
+            }
+        }
+        //remove input stacks
+        productionInventories[entindex].InputItemStacks.RemoveAll(tmpStack => inputStacksToRemove.Contains(tmpStack));
+        //remove output stacks
+        productionInventories[entindex].OutputItemStacks.RemoveAll(tmpStack => outputStacksToRemove.Contains(tmpStack));
+    }
 }

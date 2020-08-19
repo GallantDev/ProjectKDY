@@ -25,7 +25,7 @@ public class GameItemRecipe {
         }
     }
 
-    public List<GameItemStack> OutputItems {
+    public List<GameItemStack> OutputItemSets {
         get {
             return outputItemSets;
         }
@@ -53,5 +53,41 @@ public class GameItemRecipe {
         set {
             itemOverflowMult = value;
         }
+    }
+
+    public bool IsInputItemType(int itemId) {
+        for (int i = 0; i < inputItemSets.Count; i++) {
+            if (inputItemSets[i].ItemData.Id == itemId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int GetInputItemTypeLimit(int itemId) {
+        for (int i = 0; i < inputItemSets.Count; i++) {
+            if (inputItemSets[i].ItemData.Id == itemId) {
+                return inputItemSets[i].ItemCount * itemOverflowMult;
+            }
+        }
+        return 0;
+    }
+
+    public bool IsOutputItemType(int itemId) {
+        for (int i = 0; i < outputItemSets.Count; i++) {
+            if (outputItemSets[i].ItemData.Id == itemId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int GetOutputItemTypeLimit(int itemId) {
+        for (int i = 0; i < outputItemSets.Count; i++) {
+            if (outputItemSets[i].ItemData.Id == itemId) {
+                return outputItemSets[i].ItemCount * itemOverflowMult;
+            }
+        }
+        return 0;
     }
 }
